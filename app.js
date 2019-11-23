@@ -13,7 +13,6 @@ var singleRouter = require('./routes/single');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var mailRouter = require('./routes/mail');
-var furnitureRouter = require('./routes/furniture');
 var checkoutRouter = require('./routes/checkout');
 var short_codesRouter = require('./routes/short-codes');
 var app = express();
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/checkout', checkoutRouter);
-app.use('/furniture', furnitureRouter);
 app.use('/login', loginRouter);
 app.use('/mail', mailRouter);
 app.use('/product', productRouter);
