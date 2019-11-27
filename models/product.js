@@ -4,11 +4,10 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema(
     {
-        image: String,
-        id: String,
-        name: String,
-        description: String,
-        price: Number
+        image:  { type: String, required: true },
+        name:  { type: String, required: true },
+        description:  { type: String, required: true },
+        price:  { type: Number, required: true },
     }
 );
-module.exports= mongoose.model('Products', schema);
+module.exports= mongoose.model('Product', schema);

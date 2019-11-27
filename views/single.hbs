@@ -35,7 +35,7 @@
 
 						});//]]>
 						</script>
-						<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+						<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 					 <!---->
 				</div>
 				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
@@ -58,7 +58,7 @@
 					</ul>
 				</div>
 				<div class="men-position animated wow slideInUp" data-wow-delay=".5s">
-					<a href="/single"><img src="images/29.jpg" alt=" " class="img-responsive" /></a>
+					<a href="/single"><img src="/images/29.jpg" alt=" " class="img-responsive" /></a>
 					<div class="men-position-pos">
 						<h4>Summer collection</h4>
 						<h5><span>55%</span> Flat Discount</h5>
@@ -69,20 +69,20 @@
 				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="images/si.jpg">
-								<div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="{{product.image}}">
+								<div class="thumb-image"> <img src="{{product.image}}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
-							<li data-thumb="images/si1.jpg">
-								 <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="{{product.image}}">
+								 <div class="thumb-image"> <img src="{{product.image}}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
-							<li data-thumb="images/si2.jpg">
-							   <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+							<li data-thumb="{{product.image}}">
+							   <div class="thumb-image"> <img src="{{product.image}}" data-imagezoom="true" class="img-responsive"> </div>
 							</li> 
 						</ul>
 					</div>
 					<!-- flixslider -->
-						<script defer src="js/jquery.flexslider.js"></script>
-						<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+						<script defer src="/js/jquery.flexslider.js"></script>
+						<link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
 						<script>
 						// Can also be used with $(document).ready()
 						$(window).load(function() {
@@ -95,8 +95,8 @@
 					<!-- flixslider -->
 				</div>
 				<div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
-					<h3>Men's Solid Casual Shirt</h3>
-					<h4><span class="item_price">$550</span> - $900</h4>
+					<h3>{{product.name}}</h3>
+					<h4><span class="item_price">${{product.price}}</span></h4>
 					<div class="rating1">
 						<span class="starRating">
 							<input id="rating5" type="radio" name="rating" value="5">
@@ -113,8 +113,7 @@
 					</div>
 					<div class="description">
 						<h5><i>Mô tả</i></h5>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-							eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+						<p>{{product.description}}</p>
 					</div>
 					<div class="color-quality">
 						<div class="color-quality-left">
@@ -192,7 +191,7 @@
 								<div class="bootstrap-tab-text-grids">
 									<div class="bootstrap-tab-text-grid">
 										<div class="bootstrap-tab-text-grid-left">
-											<img src="images/4.png" alt=" " class="img-responsive" />
+											<img src="/images/4.png" alt=" " class="img-responsive" />
 										</div>
 										<div class="bootstrap-tab-text-grid-right">
 											<ul>
@@ -207,7 +206,7 @@
 									</div>
 									<div class="bootstrap-tab-text-grid">
 										<div class="bootstrap-tab-text-grid-left">
-											<img src="images/5.png" alt=" " class="img-responsive" />
+											<img src="/images/5.png" alt=" " class="img-responsive" />
 										</div>
 										<div class="bootstrap-tab-text-grid-right">
 											<ul>
@@ -256,26 +255,26 @@
 				<div class="col-md-3 new-collections-grid">
 					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".5s">
 						<div class="new-collections-grid1-image">
-							<a href="/single" class="product-image"><img src="images/8.jpg" alt=" " class="img-responsive"></a>
+							<a href="/single" class="product-image"><img src="/images/8.jpg" alt=" " class="img-responsive"></a>
 							<div class="new-collections-grid1-image-pos">
 								<a href="/single"></a>
 							</div>
 							<div class="new-collections-grid1-right">
 								<div class="rating">
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/1.png" alt=" " class="img-responsive">
+										<img src="/images/1.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/1.png" alt=" " class="img-responsive">
+										<img src="/images/1.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/1.png" alt=" " class="img-responsive">
+										<img src="/images/1.png" alt=" " class="img-responsive">
 									</div>
 									<div class="clearfix"> </div>
 								</div>
@@ -292,26 +291,26 @@
 					<div class="new-collections-grid1-sub">
 						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".6s">
 							<div class="new-collections-grid1-image">
-								<a href="/single" class="product-image"><img src="images/6.jpg" alt=" " class="img-responsive"></a>
+								<a href="/single" class="product-image"><img src="/images/6.jpg" alt=" " class="img-responsive"></a>
 								<div class="new-collections-grid1-image-pos">
 									<a href="/single">Xem chi tiết</a>
 								</div>
 								<div class="new-collections-grid1-right">
 									<div class="rating">
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="clearfix"> </div>
 									</div>
@@ -327,26 +326,26 @@
 					<div class="new-collections-grid1-sub">
 						<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".7s">
 							<div class="new-collections-grid1-image">
-								<a href="/single" class="product-image"><img src="images/9.jpg" alt=" " class="img-responsive"></a>
+								<a href="/single" class="product-image"><img src="/images/9.jpg" alt=" " class="img-responsive"></a>
 								<div class="new-collections-grid1-image-pos">
 									<a href="/single">Xem chi tiết</a>
 								</div>
 								<div class="new-collections-grid1-right">
 									<div class="rating">
 										<div class="rating-left">
-											<img src="images/2.png" alt=" " class="img-responsive">
+											<img src="/images/2.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/1.png" alt=" " class="img-responsive">
+											<img src="/images/1.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/1.png" alt=" " class="img-responsive">
+											<img src="/images/1.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/1.png" alt=" " class="img-responsive">
+											<img src="/images/1.png" alt=" " class="img-responsive">
 										</div>
 										<div class="rating-left">
-											<img src="images/1.png" alt=" " class="img-responsive">
+											<img src="/images/1.png" alt=" " class="img-responsive">
 										</div>
 										<div class="clearfix"> </div>
 									</div>
@@ -364,26 +363,26 @@
 				<div class="col-md-3 new-collections-grid">
 					<div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".8s">
 						<div class="new-collections-grid1-image">
-							<a href="/single" class="product-image"><img src="images/11.jpg" alt=" " class="img-responsive"></a>
+							<a href="/single" class="product-image"><img src="/images/11.jpg" alt=" " class="img-responsive"></a>
 							<div class="new-collections-grid1-image-pos">
 								<a href="/single">Xem chi tiết</a>
 							</div>
 							<div class="new-collections-grid1-right">
 								<div class="rating">
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/2.png" alt=" " class="img-responsive">
+										<img src="/images/2.png" alt=" " class="img-responsive">
 									</div>
 									<div class="rating-left">
-										<img src="images/1.png" alt=" " class="img-responsive">
+										<img src="/images/1.png" alt=" " class="img-responsive">
 									</div>
 									<div class="clearfix"> </div>
 								</div>

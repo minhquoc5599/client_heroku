@@ -1,84 +1,109 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
+var async  = require('async');
+router.get('/', function (req, res, next) {
 
-router.get('/', function(req, res, next) {
-  Product.find(function(err, docs)
-  {
-    var productChunks = [];
-    var chunkSize =3;
-    for(var i = 0; i < docs.length; i+= chunkSize)
-    {
-      productChunks.push(docs.slice(i, i+ chunkSize));
-    }
-       
-    res.render('product', { title: 'Best Store', products: productChunks});
-  });
-  
+  var action = req.query.act;
+  if (action === 'asc') {
+    Product.find()
+      .sort([['price', 'ascending']])
+      .exec(function (err, list_products) {
+        if (err) { return next(err); }
+        //Successful, so render
+        // res.redirect('/product');
+        res.render('product', { title: 'Product List Asc', product_list: list_products });
+
+      });
+  } else if (action === 'desc') {
+    Product.find()
+      .sort([['price', 'descending']])
+      .exec(function (err, list_products) {
+        if (err) { return next(err); }
+        //Successful, so render
+        // res.redirect('/product');
+        res.render('product', { title: 'Product List Desc', product_list: list_products });
+
+      });
+  } else if (action === 'nameaz') {
+    Product.find()
+      .sort([['name', 'ascending']])
+      .exec(function (err, list_products) {
+        if (err) { return next(err); }
+        //Successful, so render
+        // res.redirect('/product');
+        res.render('product', { title: 'Product List Asc Name', product_list: list_products });
+
+      });
+  } else if (action === 'nameza') {
+    Product.find()
+      .sort([['name', 'descending']])
+      .exec(function (err, list_products) {
+        if (err) { return next(err); }
+        //Successful, so render
+        // res.redirect('/product');
+        res.render('product', { title: 'Product List Desc Name', product_list: list_products });
+
+      });
+  } else {
+    Product.find({})
+      .exec(function (err, list_products) {
+
+        if (err) { return next(err); }
+        //Successful, so render
+        res.render('product', { title: 'Product List', product_list: list_products });
+      });
+
+  }
+
+
 });
 
-router.get('/asc', function(req, res, next) {
-  Product.find().sort({price: 1}).exec(function(err, docs)
-  {
-    var productChunks = [];
-    var chunkSize =3;
-    
-    for(var i = 0; i < docs.length; i+= chunkSize)
-    {
-      productChunks.push(docs.slice(i, i+ chunkSize));
-    }
-       
-    res.render('product', { title: 'Best Store', products: productChunks});
-  });
-  
-});
+router.get('/single/:id', function (req, res, next) {
 
-router.get('/desc', function(req, res, next) {
-  Product.find().sort({price: -1}).exec(function(err, docs)
-  {
-    var productChunks = [];
-    var chunkSize =3;
-    
-    for(var i = 0; i < docs.length; i+= chunkSize)
-    {
-      productChunks.push(docs.slice(i, i+ chunkSize));
-    }
-       
-    res.render('product', { title: 'Best Store', products: productChunks});
-  });
   
-});
+      var id = req.params.id;
+      
+      async.parallel({
+        product: function (callback) {
+          Product.findById(id)
+            .exec(callback);
+        }
+      }, function (err, results) {
+        if (err) { return next(err); }
+        if (results.product == null) { // No results.
+          var err = new Error('Product not found');
+          err.status = 404;
+          return next(err);
+        }
+        // Successful, so render.
+        res.render('single', { title: 'product Detail', product: results.product });
+    
+    
+      }
+    
+    
+      );
 
-router.get('/nameaz', function(req, res, next) {
-  Product.find().sort({name: -1}).exec(function(err, docs)
-  {
-    var productChunks = [];
-    var chunkSize =3;
+      // async.parallel({
+      //   product: function (callback) {
+      //     Product.findById(req.params.id)
+      //       .exec(callback)
+      //   },
     
-    for(var i = 0; i < docs.length; i+= chunkSize)
-    {
-      productChunks.push(docs.slice(i, i+ chunkSize));
-    }
-       
-    res.render('product', { title: 'Best Store', products: productChunks});
-  });
-  
-});
-
-router.get('/nameza', function(req, res, next) {
-  Product.find().sort({name: 1}).exec(function(err, docs)
-  {
-    var productChunks = [];
-    var chunkSize =3;
+      // }, function (err, results) {
+      //   if (err) { return next(err); } // Error in API usage.
+      //   if (results.product == null) { // No results.
+      //     var err = new Error('product not found');
+      //     err.status = 404;
+      //     return next(err);
+      //   }
+      //   // Successful, so render.
+      //   res.render('single', { title: 'product Detail', product: results.product});
+      // }
     
-    for(var i = 0; i < docs.length; i+= chunkSize)
-    {
-      productChunks.push(docs.slice(i, i+ chunkSize));
-    }
-       
-    res.render('product', { title: 'Best Store', products: productChunks});
-  });
-  
+      // );
+    
 });
 
 

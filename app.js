@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
-var singleRouter = require('./routes/single');
+
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var mailRouter = require('./routes/mail');
@@ -17,7 +17,13 @@ var checkoutRouter = require('./routes/checkout');
 var short_codesRouter = require('./routes/short-codes');
 var app = express();
 
-mongoose.connect('mongodb://localhost/product', {useNewUrlParser: true});
+
+//Set up mongoose connection
+var mongoDB = 'mongodb+srv://minhthuan:123456789AaBb@cluster0-9qngk.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,9 +40,11 @@ app.use('/checkout', checkoutRouter);
 app.use('/login', loginRouter);
 app.use('/mail', mailRouter);
 app.use('/product', productRouter);
+
+
 app.use('/register', registerRouter);
 app.use('/short-codes', short_codesRouter);
-app.use('/single', singleRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

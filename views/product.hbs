@@ -171,14 +171,16 @@
 			<div class="products-right-grid">
 				<div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
 					<div class="sorting">
-						<select id="country" onchange="window.location.href = this.value;" class="frm-field required sect">
-							<option value="/product">Đề cử</option>
-							<option value="/product/asc">Giá tăng dần</option>
-							<option value="/product/desc">Giá giảm dần</option>
-							<option value="/product/nameaz" >Tên A-Z</option>
-							<option value="/product/nameza">Tên Z-A</option>
+						<select id="country" onchange="window.location.href = this.value;"
+							class="frm-field required sect">
+							<option value="null">Đề cử</option>
+							<option value="/product?act=asc">Giá tăng dần</option>
+							<option value="/product?act=desc">Giá giảm dần</option>
+							<option value="/product?act=nameaz">Tên A-Z</option>
+							<option value="/product?act=nameza">Tên Z-A</option>
 						</select>
 					</div>
+
 					<div class="clearfix"> </div>
 				</div>
 				<div class="products-right-grids-position animated wow slideInRight" data-wow-delay=".5s">
@@ -191,17 +193,17 @@
 			</div>
 
 			<div class="products-right-grids-bottom">
-				{{# each products}}
+
 				<div class="row">
-					{{# each this}}
+					{{#each product_list}}
 					<div class="col-sm-4 products-right-grids-bottom-grid">
 						<div class="new-collections-grid1 products-right-grid1 animated wow slideInUp"
 							data-wow-delay=".5s">
 							<div class="new-collections-grid1-image">
-								<a href="/single" class="product-image"><img src="{{this.image}}" alt=" "
+								<a href="/single" class="product-image"><img src="{{image}}" alt=" "
 										class="img-responsive"></a>
 								<div class="new-collections-grid1-image-pos products-right-grids-pos">
-									<a href="/single">Xem chi tiết</a>
+									<a href="/product/single/{{_id}}">Xem chi tiết</a>
 								</div>
 								<div class="new-collections-grid1-right products-right-grids-pos-right">
 									<div class="rating">
@@ -224,18 +226,19 @@
 									</div>
 								</div>
 							</div>
-							<h4><a href="/single">{{this.name}}</a></h4>
-							<p>{{this.description}}</p>
+							<h4><a href="/single">{{name}}</a></h4>
+							<p>{{description}}</p>
 							<div class="simpleCart_shelfItem products-right-grid1-add-cart">
-								<p><span class="item_price">{{this.price}}VNĐ</span><a class="item_add" href="#">Thêm
+								<p><span class="item_price">{{price}}VNĐ</span><a class="item_add" href="#">Thêm
 										vào giỏ </a></p>
 							</div>
 						</div>
 					</div>
 					{{/each}}
 					<div class="clearfix"> </div>
+
 				</div>
-				{{/each}}
+
 			</div>
 
 			<nav class="numbering animated wow slideInRight" data-wow-delay=".5s">
